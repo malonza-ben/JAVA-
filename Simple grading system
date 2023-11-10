@@ -1,1 +1,80 @@
+import java.util.Scanner;
 
+public class GradingSystem {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Initialize variables for subjects and grades
+        int maths = 0, english = 0, kiswahili = 0, science = 0, social = 0;
+        char mathsGrade, englishGrade, kiswahiliGrade, scienceGrade, socialGrade;
+        double totalMarks, averageMarks;
+        char overallGrade;
+
+        // Use a while loop to repeatedly ask for subject marks until all subjects are entered
+        System.out.println("Enter marks for each subject:");
+        System.out.print("Maths: ");
+        maths = scanner.nextInt();
+        mathsGrade = calculateGrade(maths);
+
+        System.out.print("English: ");
+        english = scanner.nextInt();
+        englishGrade = calculateGrade(english);
+
+        System.out.print("Kiswahili: ");
+        kiswahili = scanner.nextInt();
+        kiswahiliGrade = calculateGrade(kiswahili);
+
+        System.out.print("Science: ");
+        science = scanner.nextInt();
+        scienceGrade = calculateGrade(science);
+
+        System.out.print("Social: ");
+        social = scanner.nextInt();
+        socialGrade = calculateGrade(social);
+
+        // Calculate total marks and average
+        totalMarks = maths + english + kiswahili + science + social;
+        averageMarks = totalMarks / 5;
+
+        // Display marks and grades for each subject
+        System.out.println("\nSubject Marks and Grades:");
+        displaySubject("Maths", maths, mathsGrade );
+        displaySubject("English", english, englishGrade );
+        displaySubject("Kiswahili", kiswahili, kiswahiliGrade );
+        displaySubject("Science", science, scienceGrade );
+        displaySubject("Social", social, socialGrade );
+
+        // Display the results for overall marks, average, and overall grade
+        System.out.println("\nTotal Marks: " + totalMarks);
+        System.out.println("Average Marks: " + averageMarks);
+        overallGrade = calculateGrade((int) averageMarks);
+        System.out.println("Overall Grade: " + overallGrade);
+
+        // Close the Scanner to avoid resource leak
+        scanner.close();
+    }
+
+    // Helper method to calculate the grade based on marks
+    private static char calculateGrade(int marks) {
+        char grade;
+
+        // Use if-else statements to determine the grade based on the specified criteria
+        if (marks <= 40) {
+            grade = 'D';
+        } else if (marks <= 60) {
+            grade = 'C';
+        } else if (marks <= 80) {
+            grade = 'B';
+        } else {
+            grade = 'A';
+        }
+
+        return grade;
+    }
+
+    // Helper method to display subject marks and grade
+    private static void displaySubject(String subject, int marks, char grade) {
+        System.out.println(subject + ": Marks - " + marks + ", Grade - " + grade);
+    }
+}
