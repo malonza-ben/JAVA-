@@ -1,25 +1,32 @@
+// Import the Scanner class from the java.util package. it is used to read inputs 
 import java.util.Scanner;
 
+// Define a class named AddTwoNumbers
 public class AddTwoNumbers {
+    // The main method, where the execution of the program begins
     public static void main(String[] args) {
         // Create a Scanner object to read input from the user
         Scanner scanner = new Scanner(System.in);
 
         // Prompt the user to enter the first number
         System.out.print("Enter the first number: ");
+        
+        // Read the first number entered by the user and store it in the variable num1
         double num1 = scanner.nextDouble();
 
         // Prompt the user to enter the second number
         System.out.print("Enter the second number: ");
+        
+        // Read the second number entered by the user and store it in the variable num2
         double num2 = scanner.nextDouble();
 
         // Close the Scanner to avoid resource leak
         scanner.close();
 
-        // Calculate the sum of the two numbers
+        // Calculate the sum of the two numbers and store it in the variable 'sum'
         double sum = num1 + num2;
 
-        // Display the result
+        // Display the result (sum) to the user
         System.out.println("Sum: " + sum);
     }
 }
